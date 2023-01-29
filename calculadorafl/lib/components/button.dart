@@ -3,13 +3,17 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class Button extends StatelessWidget {
-  const Button({super.key});
+  final String text;
+
+  Button({required this.text});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: null,
-      child: Text("Teste"),
+    return Expanded(
+      child: TextButton(
+        onPressed: () {},
+        child: Text(text, style: TextStyle(fontSize: 40),),
+      ),
     );
   }
 }

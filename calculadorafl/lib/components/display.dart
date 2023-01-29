@@ -10,29 +10,32 @@ class Display extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromRGBO(48, 48, 48, 1),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: AutoSizeText(
-              text,
-              minFontSize: 20,
-              maxFontSize: 80,
-              maxLines: 1,
-              textAlign: TextAlign.end,
-              style: const TextStyle(
-                fontWeight: FontWeight.w100,
-                decoration: TextDecoration.none,
-                fontSize: 80,
-                color: Colors.white
+    return Expanded(
+      flex: 2,
+      child: Container(
+        color: const Color.fromRGBO(48, 48, 48, 1),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8),
+              child: AutoSizeText(
+                text,
+                minFontSize: 20,
+                maxFontSize: 80,
+                maxLines: 1,
+                textAlign: TextAlign.end,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w100,
+                  decoration: TextDecoration.none,
+                  fontSize: 80,
+                  color: Colors.white
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
