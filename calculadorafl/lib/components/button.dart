@@ -10,8 +10,14 @@ class Button extends StatelessWidget {
   final String text;
   final bool big;
   final Color color;
+  final void Function(String) cb;
 
-  Button({required this.text, this.big = false, this.color = DEFAULT});
+  Button({
+    required this.text,
+    this.big = false,
+    this.color = DEFAULT,
+    required this.cb 
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +25,11 @@ class Button extends StatelessWidget {
       flex: big ? 2 : 1,
       child: TextButton(
         style: TextButton.styleFrom(
-          backgroundColor: color,
-          shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(0)),
-          side: BorderSide(style: BorderStyle.solid, width: 0.3)
-        ),
-        onPressed: () {},
+            backgroundColor: color,
+            shape:
+                BeveledRectangleBorder(borderRadius: BorderRadius.circular(0)),
+            side: BorderSide(style: BorderStyle.solid, width: 0.3)),
+        onPressed: () => cb(text),
         child: Text(
           text,
           style: TextStyle(
