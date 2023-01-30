@@ -1,5 +1,6 @@
 import 'package:calculadorafl/components/display.dart';
 import 'package:calculadorafl/components/keyboard.dart';
+import 'package:calculadorafl/models/memory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,8 +13,11 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  _onPressed(String text){
-    print(text);
+  final Memory memory = Memory();
+  _onPressed(String command){
+    setState(() {
+      memory.applyCommand(command);
+    });
   }
 
   @override
@@ -21,7 +25,7 @@ class _CalculatorState extends State<Calculator> {
     return MaterialApp(
       home: Column(
         children: [
-          Display('132.7'),
+          Display(memory.value),
           Keyboard(_onPressed)
         ],
       ),
